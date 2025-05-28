@@ -19,5 +19,5 @@ ng build
 Possible to be used later
 
 ```shell
-ng generate
+ng generate component home-page
 ```
