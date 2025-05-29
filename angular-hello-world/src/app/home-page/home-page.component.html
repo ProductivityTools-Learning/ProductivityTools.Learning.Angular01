@@ -2,7 +2,7 @@
     <p>home-page works!</p>
     <ul>
         <li *ngFor="let product of products">
-            {{product.name}} - {{product.price}}
+            <div [ngClass]="{'expensive': product.price > 10}"><span [appHighlightPrice]=product.price>{{product.name}}</span> - {{product.price}}</div>
         </li>
     </ul>
 </div>
