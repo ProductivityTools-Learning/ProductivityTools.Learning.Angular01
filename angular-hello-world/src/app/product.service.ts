@@ -15,5 +15,9 @@ export class ProductService {
   getProducts = () => {
     return this.products;
   }
+
+  addProducts = (product: Product) => {
+    this.products.push(product)
+  }
   constructor() { }
 }

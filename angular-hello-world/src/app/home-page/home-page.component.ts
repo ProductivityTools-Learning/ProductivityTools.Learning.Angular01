@@ -15,6 +15,7 @@ export class HomePageComponent {
   products: Product[]
 
   constructor(productService: ProductService) {
+    productService.addProducts(new Product('plum', 10));
     this.products = productService.getProducts();
   }
 }
