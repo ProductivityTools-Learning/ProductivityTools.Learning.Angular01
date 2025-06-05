@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from './models/Product';
+import { Log } from './decorators/log.decorator';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class ProductService {
     new Product('Bannana', 30)
   ]
 
-  getProducts = () => {
+  @Log
+  getProducts() {
     return this.products;
   }
 
