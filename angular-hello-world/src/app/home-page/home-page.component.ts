@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../product.service';
-import { NgClass, NgFor } from '@angular/common';
+import { CommonModule, NgClass, NgFor } from '@angular/common';
 import { Product } from '../models/Product';
 import { HighlightPriceDirective } from '../highlight-price.directive';
+import { PwUppercasePipe } from '../pw-uppercase.pipe';
 
 
 @Component({
   selector: 'app-home-page',
-  imports: [NgFor, NgClass, HighlightPriceDirective],
+  imports: [NgFor, NgClass, HighlightPriceDirective, CommonModule, PwUppercasePipe],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
