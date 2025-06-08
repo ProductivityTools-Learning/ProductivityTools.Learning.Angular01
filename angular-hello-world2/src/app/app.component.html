@@ -1,8 +1,22 @@
+<p>This is app pag (like an master). Menu and header is in the app component</p>
 <h1>{{storeName}}</h1>
 <div class="title">Name: {{storeName}} {{getStoreName()}}</div>
+Menu:
+<ul class="menu">
+    <li class="menu-item">
+        <a routerLink="/">Home</a>
+    </li>
+    <li class="menu-item">
+        <a routerLink="/products">Products</a>
+    </li>
+    <li class="menu-item">
+        <a routerLink="/deals">Deals</a>
+    </li>
+</ul>
 <router-outlet></router-outlet>
 
-old:
+
+<p>This is app pag (like an master)</p>
 <!-- <app-home-page></app-home-page> -->
 <!-- <app-product-manager></app-product-manager> -->
 

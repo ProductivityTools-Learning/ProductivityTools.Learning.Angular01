@@ -18,8 +18,14 @@ export class ProductService {
     return this.products;
   }
 
-  addProducts = (product: Product) => {
+  addProducts(product: Product) {
     this.products.push(product)
   }
+
+  getProduct(name: string) {
+    let r = this.products.find(product => product.name === name);
+    return r;
+  }
+
   constructor() { }
 }

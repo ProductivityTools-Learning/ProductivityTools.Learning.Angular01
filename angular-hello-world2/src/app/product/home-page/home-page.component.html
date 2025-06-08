@@ -1,15 +1,1 @@
-<div>
-  <p>home-page works!</p>
-  <ul>
-    <li *ngFor="let product of products">
-      <a routerLink="/details">
-        <div [ngClass]="{ expensive: product.price > 10 }">
-          <span [appHighlightPrice]="product.price">
-            {{ product.name | pwUppercase }}
-          </span>
-          - {{ product.price | currency : "PLN" }}
-        </div>
-      </a>
-    </li>
-  </ul>
-</div>
+home page. welcome!!!
