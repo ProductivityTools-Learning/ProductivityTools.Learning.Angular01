@@ -7,15 +7,10 @@ import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
-  imports: [NgFor, NgClass, SharedModule, CommonModule, RouterLink, RouterModule],
+  imports: [SharedModule, CommonModule, RouterModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
-  products: Product[]
-
-  constructor(productService: ProductService) {
-    productService.addProducts(new Product('plum', 10));
-    this.products = productService.getProducts();
-  }
+ 
 }

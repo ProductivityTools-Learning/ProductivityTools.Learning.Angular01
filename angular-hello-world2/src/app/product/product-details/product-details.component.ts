@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../models/Product';
 import { ProductService } from '../product.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-details',
@@ -10,19 +11,25 @@ import { ProductService } from '../product.service';
   styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent {
-  productName?: string;
+  productName?: string | null;
   product?: Product;
+  routeSub$: Subscription | null = null;
 
   constructor(private activatedRoute: ActivatedRoute, private productService: ProductService) { }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.productName = this.activatedRoute.snapshot.params['name'];
-    console.log(this.productName);
-    if (this.productName !== undefined) {
-      this.product = this.productService.getProduct(this.productName);
-    }
+
+    this.routeSub$ = this.activatedRoute.paramMap.subscribe(paramMap => {
+      this.productName = paramMap.get('name');
+      console.log(this.productName)
+      if (this.productName !== undefined && this.productName !== null) {
+        this.product = this.productService.getProduct(this.productName);
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.routeSub$?.unsubscribe();
   }
 }
 

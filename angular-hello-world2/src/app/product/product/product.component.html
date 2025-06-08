@@ -1,8 +1,8 @@
 <div>
-  <p>home-page works!</p>
+  <p>product component works!</p>
   <ul>
     <li *ngFor="let product of products">
-      <a [routerLink]="['/details', product.name]">
+      <a [routerLink]="['details', product.name]">
         <div [ngClass]="{ expensive: product.price > 10 }">
           <span [appHighlightPrice]="product.price">
             {{ product.name | pwUppercase }}
@@ -12,4 +12,7 @@
       </a>
     </li>
   </ul>
+  <div class="product-details">
+    <router-outlet></router-outlet>
+  </div>
 </div>
