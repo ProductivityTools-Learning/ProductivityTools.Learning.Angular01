@@ -19,7 +19,7 @@ export class ProductDetailsComponent {
 
   ngOnInit(): void {
 
-    this.routeSub$ = this.activatedRoute.paramMap.subscribe(paramMap => {
+    this.routeSub$ = this.activatedRoute.queryParamMap.subscribe(paramMap => {
       this.productName = paramMap.get('name');
       console.log(this.productName)
       if (this.productName !== undefined && this.productName !== null) {

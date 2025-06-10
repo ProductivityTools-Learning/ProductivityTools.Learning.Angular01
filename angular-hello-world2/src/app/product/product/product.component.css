@@ -1,0 +1,19 @@
+.orrange {
+    background-color: orange;
+}
+
+.apple {
+    background-color: red;
+}
+
+.product-link {
+    display: block;
+    padding: 5px;
+    margin: 10px;
+    
+}
+
+.product-link.active{
+    background-color: aqua;
+    font-weight: bold;
+}

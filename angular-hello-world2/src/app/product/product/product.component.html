@@ -2,7 +2,12 @@
   <p>product component works!</p>
   <ul>
     <li *ngFor="let product of products">
-      <a [routerLink]="['details', product.name]">
+      <a
+        routerLink="details"
+        [queryParams]="{ name: product.name }"
+        class="product-link"
+        [routerLinkActive]="getActiveClassName(product)"
+      >
         <div [ngClass]="{ expensive: product.price > 10 }">
           <span [appHighlightPrice]="product.price">
             {{ product.name | pwUppercase }}

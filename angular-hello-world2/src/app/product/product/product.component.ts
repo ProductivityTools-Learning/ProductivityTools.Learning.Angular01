@@ -5,6 +5,8 @@ import { Product } from '../../models/Product';
 import { SharedModule } from '../../shared/shared.module';
 import { RouterLink, RouterModule } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-product',
   imports: [NgFor, NgClass, SharedModule, CommonModule, RouterLink, RouterModule],
@@ -18,4 +20,8 @@ export class ProductComponent {
     productService.addProducts(new Product('plum', 10));
     this.products = productService.getProducts();
   }
+
+  getActiveClassName(product:Product){
+  return product.name.toLowerCase();
+}
 }

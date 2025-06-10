@@ -3,6 +3,7 @@ import { HomePageComponent } from './product/home-page/home-page.component';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { DealsComponent } from './product/deals/deals.component';
 import { ProductComponent } from './product/product/product.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 
 export const routes: Routes = [
@@ -10,9 +11,10 @@ export const routes: Routes = [
     {
         path: 'products', component: ProductComponent,
         children: [
-            { path: 'details/:name', component: ProductDetailsComponent }
+            { path: 'details', component: ProductDetailsComponent }
         ]
     },
     { path: 'deals', component: DealsComponent },
-    { path: 'details/:name', component: ProductDetailsComponent }
+    { path: 'details/:name', component: ProductDetailsComponent },
+    { path: '**', component: NotFoundComponent }
 ];
