@@ -159,3 +159,13 @@ import * as pwmodule from ./module
 
 module.pi;
 ```
+
+## Lifecycle Hoooks
+
+- ngOnChanges 
+    - invoked when input properties change
+    -  does not detect change of the object property
+- ngOnInit
+- DoCheck 
+    - when property is changed within component
+    - detect change of the object property
