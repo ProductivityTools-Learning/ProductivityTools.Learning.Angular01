@@ -169,10 +169,19 @@ module.pi;
 - DoCheck 
     - when property is changed within component
     - detect change of the object property
+- ngAfterContentInit
+- ngAfterContentChecked - not sure
+- ngAfterViewInit  - not sure
+- ngAfterViewChecked - not sure
+- ngOnDestroy
+- DestroyRef - not sure what is the difference, this can be injected, right now I do not understand the difference
 
 ### DoCheck
 
-Do check implementation is more complex
+Do check implementation is more complex.
+
+It invokes when one of the property of the object that was passed by reference to the child changes. 
+For example we pass user to the child compoenent from master and we change the name of this user. 
 
 ```ts
 constructor(private differs: KeyValueDiffers) {
@@ -189,3 +198,25 @@ constructor(private differs: KeyValueDiffers) {
     }
   }
 ```
+
+### ngAfterContentInit
+You could create the parent component, child component. Child component can reference elements from the inner html of the child component
+(in child we are using ```ng-content```)
+
+Parent
+```ts
+<app-custom-panel-component><div #header>xx</div></app-custom-panel-component>
+```
+Child:
+```ts
+export class CustomPanelComponent implements AfterContentInit {
+
+@ContentChild('header') headerElement: ElementRef | undefined;
+```
+```
+<div clas="panel">
+    <ng-content></ng-content>
+</div>
+```
+ngAfterContentInit alows to invoke code after the parent values will be initiated. 
+
