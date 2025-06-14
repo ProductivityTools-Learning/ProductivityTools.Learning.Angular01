@@ -169,3 +169,23 @@ module.pi;
 - DoCheck 
     - when property is changed within component
     - detect change of the object property
+
+### DoCheck
+
+Do check implementation is more complex
+
+```ts
+constructor(private differs: KeyValueDiffers) {
+    this.differ = this.differs.find({}).create();
+  }
+  ngDoCheck(): void {
+    console.log("ngDoCheck called");
+    const changes = this.differ.diff(this.user);
+    if (changes) {
+      changes.forEachChangedItem((item: { key: any; previousValue: AnalyserNode; currentValue: any }) => {
+        console.log("property", item.key, "changed from", item.previousValue, "to", item.currentValue);
+      })
+
+    }
+  }
+```
