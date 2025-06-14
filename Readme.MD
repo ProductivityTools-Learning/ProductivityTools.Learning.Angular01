@@ -220,3 +220,17 @@ export class CustomPanelComponent implements AfterContentInit {
 ```
 ngAfterContentInit alows to invoke code after the parent values will be initiated. 
 
+## Databinding
+
+- Interpolation 
+  - {{xxx}} - always convert to string
+  - works on properties not attributes this won't work ```<div id="{{xxx}}"></div>```
+  - one-way
+- Property binding
+  - works on attributes ```<div [id]="xxx"></div>>``` (here xxx is a value of the component, not string xxx)
+  - one-way
+- Event binding
+  - (event)="method()" ```<button (click)="save()"/>```
+- Two-way binding
+  - import ```import { FormsModule } from '@angular/forms';```
+  - use ngModel ```<input type="text" [(ngModel)]="name" />```
